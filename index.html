@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio Papadopolo Castellanos — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0e1a;
+    --panel: #131b30;
+    --line: #2a3958;
+    --ice: #7fb2e0;
+    --ice-dim: #4d6d94;
+    --text: #e8eef5;
+    --text-dim: #94a3bd;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  a { color: var(--ice); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- Nav --- */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(11,14,26,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    max-width: 760px;
+  }
+  nav .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: var(--text);
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+  }
+  nav a {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+  nav a:hover { color: var(--ice); text-decoration: none; }
+
+  /* --- Hero --- */
+  header.hero {
+    padding: 120px 0 90px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  header.hero .rune-line {
+    color: var(--ice-dim);
+    letter-spacing: 0.35em;
+    font-size: 0.85rem;
+    margin-bottom: 22px;
+  }
+  header.hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  header.hero p.role {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    margin-bottom: 34px;
+  }
+  .hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border: 1px solid var(--ice-dim);
+    border-radius: 2px;
+    font-size: 0.92rem;
+    color: var(--text);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn:hover {
+    border-color: var(--ice);
+    color: var(--ice);
+    text-decoration: none;
+  }
+  .btn.primary {
+    background: var(--ice);
+    border-color: var(--ice);
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .btn.primary:hover { color: var(--bg); opacity: 0.9; }
+
+  /* --- Sections --- */
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: var(--ice-dim);
+    margin-bottom: 10px;
+  }
+  section h2 {
+    font-size: 1.9rem;
+    margin-bottom: 22px;
+  }
+
+  #about p {
+    color: var(--text-dim);
+    max-width: 64ch;
+    font-size: 1.02rem;
+  }
+
+  /* --- Skill groups --- */
+  .skill-group { margin-bottom: 28px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group h3 {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .skill-tag {
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 2px;
+  }
+
+  /* --- Contact --- */
+  #contact .contact-list {
+    list-style: none;
+  }
+  #contact .contact-list li {
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #contact .contact-list li:last-child { border-bottom: 1px solid var(--line); }
+  #contact .contact-list .label {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+  #contact .contact-list a {
+    font-size: 1rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 36px 0 48px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 560px) {
+    nav ul { gap: 16px; }
+    nav .wrap { flex-direction: column; gap: 10px; padding-bottom: 14px; }
+    header.hero { padding: 90px 0 60px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Antonio Papadopolo</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tech">Technologies</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="rune-line">ᚨ ᚾ ᛏ ᛟ ᚾ ᛁ ᛟ</p>
+    <h1>Antonio Papadopolo Castellanos</h1>
+    <p class="role">Software Developer, Junior</p>
+    <div class="hero-links">
+      <a class="btn primary" href="./assets/cv-antonio-papadopolo.pdf" target="_blank">View CV</a>
+      <a class="btn" href="https://github.com/Antonio240610" target="_blank">GitHub</a>
+      <a class="btn" href="#" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <p class="section-label">01 — About</p>
+    <h2>Building things worth shipping</h2>
+    <p>
+      I'm a 3rd-year Systems Engineering student, currently at a Junior level.
+      I'm looking for opportunities as a Software Developer to keep learning
+      new techniques, build my own projects, and craft digital products worth
+      sharing — from small tools to full products.
+    </p>
+  </section>
+
+  <section id="tech">
+    <p class="section-label">02 — Technologies</p>
+    <h2>What I work with</h2>
+
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="skill-row">
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Frameworks &amp; Runtime</h3>
+      <div class="skill-row">
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">WebSockets</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Databases</h3>
+      <div class="skill-row">
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <p class="section-label">03 — Tools</p>
+    <h2>How I work</h2>
+    <div class="skill-group">
+      <div class="skill-row">
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Git &amp; GitHub</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">Inkscape</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-label">04 — Contact</p>
+    <h2>Get in touch</h2>
+    <ul class="contact-list">
+      <li>
+        <span class="label">EMAIL</span>
+        <a href="mailto:antoniopapadopolo124@gmail.com">antoniopapadopolo124@gmail.com</a>
+      </li>
+      <li>
+        <span class="label">GITHUB</span>
+        <a href="https://github.com/Antonio240610" target="_blank">github.com/Antonio240610</a>
+      </li>
+      <li>
+        <span class="label">LINKEDIN</span>
+        <a href="#" target="_blank">Add your LinkedIn URL here</a>
+      </li>
+      <li>
+        <span class="label">CV</span>
+        <a href="./assets/cv-antonio-papadopolo.pdf" target="_blank">Download PDF</a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  Antonio Papadopolo Castellanos — Guatemala
+</footer>
+
+</body>
+</html>
